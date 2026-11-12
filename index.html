@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple scholarship organizer for learners at every education level.">
+  <title>Scolorships | Scholarship Finder</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Scolorships home"><span class="brand-mark">S</span><span>Scolorships</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#scholarships">My scholarships</a>
+      <a href="#resources">Find scholarships</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">SCHOLARSHIP ORGANIZER</p>
+        <h1>Make your next opportunity <span>easier to find.</span></h1>
+        <p class="hero-description">Keep scholarship opportunities in one place, from your first years of school through college and beyond.</p>
+        <a class="button button-light" href="#add-scholarship">Add a scholarship <span aria-hidden="true">＋</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-circle"></div>
+        <div class="paper paper-back"></div>
+        <div class="paper paper-front"><span class="paper-star">✦</span><span class="paper-line long"></span><span class="paper-line"></span><span class="paper-line short"></span><span class="paper-check">✓</span></div>
+        <div class="art-spark spark-one">✦</div><div class="art-spark spark-two">✧</div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Your scholarship totals">
+      <div class="stat"><span class="stat-number" id="total-count">0</span><span class="stat-label">Scholarships added</span></div>
+      <div class="stat"><span class="stat-number" id="saved-count">0</span><span class="stat-label">Saved</span></div>
+      <div class="stat"><span class="stat-number" id="applied-count">0</span><span class="stat-label">Applied</span></div>
+    </section>
+
+    <section class="content-section" id="scholarships">
+      <div class="section-heading">
+        <div><p class="eyebrow">YOUR LIST</p><h2>Scholarship tracker</h2><p class="section-subtitle">Add opportunities you find and keep track of your progress.</p></div>
+      </div>
+
+      <form class="add-form" id="scholarship-form">
+        <div class="form-heading" id="add-scholarship"><div><h3>Add a scholarship</h3><p>Enter information from the scholarship provider's official website.</p></div><span class="form-icon" aria-hidden="true">＋</span></div>
+        <div class="form-grid">
+          <label class="field field-wide">Scholarship name<input name="name" required maxlength="100" placeholder="Example: Community Leadership Award"></label>
+          <label class="field">Organization or provider<input name="provider" maxlength="100" placeholder="Who offers it?"></label>
+          <label class="field">Education level<select name="level" required><option value="">Choose a level</option><option>Middle school</option><option>High school</option><option>Undergraduate</option><option>Graduate</option><option>Adult learner</option><option>All education levels</option><option>Other</option></select></label>
+          <label class="field">Application deadline<input name="deadline" type="date"></label>
+          <label class="field">Application or information link<input name="url" type="url" placeholder="https://example.org/scholarship"></label>
+          <label class="field field-wide">Eligibility and notes<textarea name="notes" rows="3" maxlength="600" placeholder="Who can apply? Note requirements, award details, or documents needed."></textarea></label>
+        </div>
+        <div class="form-footer"><p>Only add details you've checked with the scholarship provider.</p><button class="button button-primary" type="submit">Add to my list</button></div>
+        <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="list-toolbar">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Search your scholarships..." aria-label="Search scholarships"></label>
+        <label class="filter-label"><span class="sr-only">Filter by education level</span><select id="level-filter"><option value="all">All education levels</option><option>Middle school</option><option>High school</option><option>Undergraduate</option><option>Graduate</option><option>Adult learner</option><option>All education levels</option><option>Other</option></select></label>
+        <label class="filter-label"><span class="sr-only">Filter by application status</span><select id="status-filter"><option value="all">All statuses</option><option value="saved">Saved</option><option value="applied">Applied</option></select></label>
+      </div>
+      <div class="scholarship-list" id="scholarship-list" aria-live="polite"></div>
+    </section>
+
+    <section class="resources-section" id="resources">
+      <p class="eyebrow">START YOUR SEARCH</p><h2>Places to look for opportunities</h2>
+      <p class="section-subtitle">Explore scholarship information from established organizations, then confirm each opportunity on its provider's website.</p>
+      <div class="resource-grid">
+        <a class="resource-card" href="https://www.careeronestop.org/" target="_blank" rel="noopener noreferrer"><span class="resource-icon">⌕</span><span><strong>CareerOneStop</strong><small>U.S. Department of Labor career and training resources.</small></span><span class="external">↗</span></a>
+        <a class="resource-card" href="https://studentaid.gov/" target="_blank" rel="noopener noreferrer"><span class="resource-icon">✳</span><span><strong>Federal Student Aid</strong><small>Official information about federal student aid and paying for education.</small></span><span class="external">↗</span></a>
+        <a class="resource-card" href="https://bigfuture.collegeboard.org/" target="_blank" rel="noopener noreferrer"><span class="resource-icon">▤</span><span><strong>BigFuture</strong><small>College planning and scholarship search resources.</small></span><span class="external">↗</span></a>
+      </div>
+      <p class="disclaimer">Scolorships is an independent organizing tool, not a scholarship provider. Listings you add are stored only in this browser. Always verify eligibility, deadlines, and application links directly with the organization offering the scholarship. Never pay a fee or share sensitive personal information just to search for scholarships.</p>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">S</span><span>Scolorships</span></a><span>Keep your opportunities organized.</span></footer>
+</body>
+</html>

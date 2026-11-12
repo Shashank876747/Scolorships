@@ -1,11 +1,37 @@
-<div align="center">
+# Scolorships
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Scolorships is a simple, browser-based scholarship organizer designed for learners at every education level.
 
-  <h1>Built with AI Studio</h2>
+## First version
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- Add scholarship opportunities with a name, provider, education level, deadline, notes, and official link.
+- Search scholarships by name, provider, education level, or notes.
+- Filter by education level and status.
+- Save opportunities and mark applications as submitted.
+- Keep the list in the current browser using local storage.
+- Visit external scholarship research resources.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Run the website
 
-</div>
+No build tools or server are required.
+
+1. Download or clone this repository.
+2. Open `index.html` in a modern web browser.
+3. Add scholarship information from providers you have independently checked.
+
+You can also publish the static files with GitHub Pages or another static hosting provider.
+
+## Important limitations
+
+- This version does not have accounts, cloud sync, or a shared scholarship database.
+- Scholarship entries are added by the user and are stored only in that browser.
+- The sample resource links are starting points for research, not endorsements.
+- Always verify eligibility, deadlines, award details, and application URLs on the scholarship provider's official website.
+
+## Technology
+
+HTML, CSS, and plain JavaScript. No frameworks or external packages are required.
+
+## Project purpose
+
+Help students and other learners keep scholarship opportunities organized in one place, regardless of their education level.
