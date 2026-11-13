@@ -7,6 +7,7 @@
   <title>Scolorships | Scholarship Finder</title>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
+  <script async src="https://cse.google.com/cse.js?cx=a5a9df8ec8ac94e3a"></script>
 </head>
 <body>
   <header class="site-header">
@@ -37,26 +38,7 @@
       <p class="eyebrow">SEARCH THE WEB</p>
       <h2>Find real scholarships</h2>
       <p class="section-subtitle">Search current scholarship opportunities across the web. Choose an education level and add keywords like your subject, location, or interests.</p>
-      <form class="web-search-form" id="web-search-form" action="https://www.google.com/search" method="get" target="_blank" rel="noopener">
-        <label class="web-search-field">
-          <span class="sr-only">What are you looking for?</span>
-          <input id="web-search-keywords" type="search" placeholder="Example: STEM, art, community service, international students" maxlength="120" required>
-        </label>
-        <label class="web-search-level">
-          <span class="sr-only">Education level</span>
-          <select id="web-search-level">
-            <option value="">All education levels</option>
-            <option value="middle school">Middle school</option>
-            <option value="high school">High school</option>
-            <option value="undergraduate college">Undergraduate</option>
-            <option value="graduate school">Graduate</option>
-            <option value="adult learners">Adult learners</option>
-            <option value="international students">International students</option>
-          </select>
-        </label>
-        <input type="hidden" name="q" id="web-search-query">
-        <button class="button button-primary" type="submit">Search scholarships <span aria-hidden="true">↗</span></button>
-      </form>
+      <div class="gcse-search"></div>
       <p class="web-search-note">Search results come from Google and may include third-party websites. Always check eligibility, deadlines, and application details on the scholarship provider's official website. Scolorships doesn't verify or award scholarships.</p>
     </section>
 
