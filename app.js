@@ -11,16 +11,6 @@
 
   let scholarships = loadScholarships();
 
-  const webSearchForm = document.querySelector("#web-search-form");
-  if (webSearchForm) {
-    webSearchForm.addEventListener("submit", event => {
-      const keywords = document.querySelector("#web-search-keywords").value.trim();
-      const level = document.querySelector("#web-search-level").value;
-      const query = ["scholarships", level ? "for " + level : "", keywords].filter(Boolean).join(" ");
-      document.querySelector("#web-search-query").value = query;
-    });
-  }
-
   function loadScholarships() {
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
