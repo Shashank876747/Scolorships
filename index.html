@@ -13,7 +13,7 @@
     <a class="brand" href="#" aria-label="Scolorships home"><span class="brand-mark">S</span><span>Scolorships</span></a>
     <nav aria-label="Main navigation">
       <a href="#scholarships">My scholarships</a>
-      <a href="#resources">Find scholarships</a>
+      <a href="#web-search">Find scholarships</a>
     </nav>
   </header>
 
@@ -31,6 +31,33 @@
         <div class="paper paper-front"><span class="paper-star">✦</span><span class="paper-line long"></span><span class="paper-line"></span><span class="paper-line short"></span><span class="paper-check">✓</span></div>
         <div class="art-spark spark-one">✦</div><div class="art-spark spark-two">✧</div>
       </div>
+    </section>
+
+    <section class="web-search-section" id="web-search">
+      <p class="eyebrow">SEARCH THE WEB</p>
+      <h2>Find real scholarships</h2>
+      <p class="section-subtitle">Search current scholarship opportunities across the web. Choose an education level and add keywords like your subject, location, or interests.</p>
+      <form class="web-search-form" id="web-search-form" action="https://www.google.com/search" method="get" target="_blank" rel="noopener">
+        <label class="web-search-field">
+          <span class="sr-only">What are you looking for?</span>
+          <input id="web-search-keywords" type="search" placeholder="Example: STEM, art, community service, international students" maxlength="120" required>
+        </label>
+        <label class="web-search-level">
+          <span class="sr-only">Education level</span>
+          <select id="web-search-level">
+            <option value="">All education levels</option>
+            <option value="middle school">Middle school</option>
+            <option value="high school">High school</option>
+            <option value="undergraduate college">Undergraduate</option>
+            <option value="graduate school">Graduate</option>
+            <option value="adult learners">Adult learners</option>
+            <option value="international students">International students</option>
+          </select>
+        </label>
+        <input type="hidden" name="q" id="web-search-query">
+        <button class="button button-primary" type="submit">Search scholarships <span aria-hidden="true">↗</span></button>
+      </form>
+      <p class="web-search-note">Search results come from Google and may include third-party websites. Always check eligibility, deadlines, and application details on the scholarship provider's official website. Scolorships doesn't verify or award scholarships.</p>
     </section>
 
     <section class="stats" aria-label="Your scholarship totals">
