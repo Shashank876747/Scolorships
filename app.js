@@ -173,5 +173,102 @@
   searchInput.addEventListener("input", render);
   levelFilter.addEventListener("change", render);
   statusFilter.addEventListener("change", render);
+
+  const directoryForm = document.querySelector("#directory-search-form");
+  const directoryQuery = document.querySelector("#directory-query");
+  const directoryLevel = document.querySelector("#directory-level");
+  const directoryCategory = document.querySelector("#directory-category");
+  const directoryStatus = document.querySelector("#directory-status");
+  const directoryResults = document.querySelector("#directory-results");
+
+  function addDirectoryMeta(container, label, value) {
+    if (!value) return;
+    container.append(makeElement("span", "", label + ": " + value));
+  }
+
+  function renderDirectory(items) {
+    directoryResults.replaceChildren();
+
+    if (!items.length) {
+      const empty = makeElement("div", "directory-empty", "No matching scholarships were found. Try different keywords or filters.");
+      directoryResults.append(empty);
+      return;
+    }
+
+    items.forEach(item => {
+      const card = makeElement("article", "directory-card");
+      const heading = makeElement("div");
+      heading.append(makeElement("h3", "", item.name || "Untitled scholarship"));
+      heading.append(makeElement("p", "directory-provider", item.provider || "Provider not listed"));
+      card.append(heading);
+
+      if (item.description) card.append(makeElement("p", "directory-description", item.description));
+
+      const meta = makeElement("div", "directory-meta");
+      addDirectoryMeta(meta, "Award", item.amount);
+      addDirectoryMeta(meta, "Deadline", item.deadline);
+      addDirectoryMeta(meta, "Level", item.education_level);
+      addDirectoryMeta(meta, "Category", item.category);
+      addDirectoryMeta(meta, "Field", item.field_of_study);
+      card.append(meta);
+
+      if (item.eligibility) {
+        card.append(makeElement("p", "directory-description", "Eligibility: " + item.eligibility));
+      }
+
+      const link = safeExternalUrl(item.application_url);
+      if (link) {
+        const applyLink = makeElement("a", "small-button", "Provider website ↗");
+        applyLink.href = link;
+        applyLink.target = "_blank";
+        applyLink.rel = "noopener noreferrer";
+        card.append(applyLink);
+      }
+
+      directoryResults.append(card);
+    });
+  }
+
+  async function searchDirectory(event) {
+    if (event) event.preventDefault();
+    directoryStatus.textContent = "Searching scholarships...";
+    directoryResults.replaceChildren();
+
+    const params = new URLSearchParams();
+    const query = directoryQuery.value.trim();
+    const level = directoryLevel.value;
+    const category = directoryCategory.value;
+
+    if (query) params.set("q", query);
+    if (level !== "all") params.set("education_level", level);
+    if (category !== "all") params.set("category", category);
+
+    try {
+      const response = await fetch("/api/scholarships?" + params.toString(), {
+        headers: { "Accept": "application/json" }
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Search is temporarily unavailable.");
+      }
+
+      const items = Array.isArray(data.scholarships) ? data.scholarships : [];
+      renderDirectory(items);
+      directoryStatus.textContent = items.length
+        ? items.length + (items.length === 1 ? " scholarship found." : " scholarships found.")
+        : "No listings are in the directory yet, or no results match those filters.";
+    } catch (error) {
+      directoryStatus.textContent = error.message || "Couldn't load scholarships. Please try again.";
+    }
+  }
+
+  if (directoryForm) {
+    directoryForm.addEventListener("submit", searchDirectory);
+    directoryLevel.addEventListener("change", searchDirectory);
+    directoryCategory.addEventListener("change", searchDirectory);
+    searchDirectory();
+  }
+
   render();
 })();
