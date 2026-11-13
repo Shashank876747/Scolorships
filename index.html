@@ -7,7 +7,6 @@
   <title>Scolorships | Scholarship Finder</title>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
-  <script async src="https://cse.google.com/cse.js?cx=a5a9df8ec8ac94e3a"></script>
 </head>
 <body>
   <header class="site-header">
@@ -35,11 +34,45 @@
     </section>
 
     <section class="web-search-section" id="web-search">
-      <p class="eyebrow">SEARCH THE WEB</p>
-      <h2>Find real scholarships</h2>
-      <p class="section-subtitle">Search current scholarship opportunities across the web. Choose an education level and add keywords like your subject, location, or interests.</p>
-      <div class="gcse-search"></div>
-      <p class="web-search-note">Search results come from Google and may include third-party websites. Always check eligibility, deadlines, and application details on the scholarship provider's official website. Scolorships doesn't verify or award scholarships.</p>
+      <p class="eyebrow">SCHOLARSHIP DIRECTORY</p>
+      <h2>Find scholarships</h2>
+      <p class="section-subtitle">Search opportunities in the shared Scolorships directory. Filter by education level or category, then check each provider's official details.</p>
+      <form class="directory-search-form" id="directory-search-form">
+        <label class="directory-search-field">
+          <span class="sr-only">Search scholarships</span>
+          <input id="directory-query" type="search" maxlength="120" placeholder="Search by name, subject, provider, or keyword">
+        </label>
+        <label class="directory-filter">
+          <span class="sr-only">Education level</span>
+          <select id="directory-level">
+            <option value="all">All education levels</option>
+            <option>Middle school</option>
+            <option>High school</option>
+            <option>Undergraduate</option>
+            <option>Graduate</option>
+            <option>Adult learner</option>
+            <option>All education levels</option>
+          </select>
+        </label>
+        <label class="directory-filter">
+          <span class="sr-only">Category</span>
+          <select id="directory-category">
+            <option value="all">All categories</option>
+            <option>STEM</option>
+            <option>Community Service</option>
+            <option>Essay</option>
+            <option>Merit-based</option>
+            <option>Need-based</option>
+            <option>No essay</option>
+            <option>Arts</option>
+            <option>General</option>
+          </select>
+        </label>
+        <button class="button button-primary" type="submit">Search</button>
+      </form>
+      <p class="directory-status" id="directory-status" role="status" aria-live="polite">Loading scholarships...</p>
+      <div class="directory-results" id="directory-results" aria-live="polite"></div>
+      <p class="web-search-note">Listings are provided for discovery. Always confirm eligibility, deadlines, award details, and application links with the scholarship provider. Scolorships doesn't award scholarships or guarantee that a listing is current.</p>
     </section>
 
     <section class="stats" aria-label="Your scholarship totals">
