@@ -3,3 +3,20 @@
 
 /* Google Programmable Search embedded results */
 .gcse-search{margin-top:20px;min-height:54px}.gcse-search .gsc-control-cse{padding:0!important;border:0!important;background:transparent!important}.gcse-search .gsc-control-wrapper-cse{width:100%}.gcse-search .gsc-results-wrapper-overlay{z-index:1000}
+
+/* Shared scholarship directory */
+.directory-search-form{display:grid;grid-template-columns:minmax(0,1fr) 180px 180px auto;gap:10px;margin-top:20px}
+.directory-search-field input,.directory-filter select{width:100%;height:46px;border:1px solid #dfe4ef;border-radius:9px;background:#fff;padding:11px 12px;color:var(--navy);font:inherit;font-size:14px;outline:none}
+.directory-search-field input:focus,.directory-filter select:focus{border-color:#7890e7;box-shadow:0 0 0 3px #7890e722}
+.directory-status{font-size:13px;color:var(--muted);margin:16px 0}
+.directory-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.directory-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:19px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.directory-card h3{font-size:16px;color:var(--navy);margin:0}
+.directory-provider{font-size:12px;color:var(--muted);margin:4px 0 0}
+.directory-description{font-size:13px;line-height:1.6;color:#59677f;margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.directory-meta{display:flex;gap:8px;flex-wrap:wrap;font-size:11px;color:#53617a}
+.directory-meta span{background:#f1f4fa;border-radius:20px;padding:6px 9px}
+.directory-card .small-button{align-self:flex-start;margin-top:auto}
+.directory-empty{grid-column:1/-1;text-align:center;padding:30px 18px;border:1px dashed #ccd4e4;border-radius:14px;background:#fff;color:var(--muted);font-size:13px}
+@media(max-width:760px){.directory-search-form{grid-template-columns:1fr 1fr}.directory-search-field{grid-column:1/-1}.directory-search-form .button{grid-column:1/-1}.directory-results{grid-template-columns:1fr}}
+@media(max-width:480px){.directory-search-form{grid-template-columns:1fr}.directory-search-field,.directory-search-form .button{grid-column:auto}}
